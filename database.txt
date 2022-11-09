@@ -1,0 +1,31 @@
+CREATE SCHEMA `rental_agency` ;
+
+CREATE TABLE `rental_agency`.`service_request` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `name` VARCHAR(155) NOT NULL,
+  `surname` VARCHAR(155) NOT NULL,
+  `contact_num` VARCHAR(155) NOT NULL,
+  `room_num` VARCHAR(45) NOT NULL,
+  `issue` VARCHAR(155) NOT NULL,
+  `approval` VARCHAR(155) NOT NULL,
+  PRIMARY KEY (`id`));
+
+CREATE TABLE `rental_agency`.`handymen` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `name` VARCHAR(425) NOT NULL,
+  `surname` VARCHAR(425) NOT NULL,
+  `contact_num` VARCHAR(45) NOT NULL,
+  `profession` VARCHAR(425) NOT NULL,
+  PRIMARY KEY (`id`));
+
+ALTER TABLE `rental_agency`.`service_request` 
+
+ADD COLUMN `assigned_vol` VARCHAR(155) NOT NULL AFTER `approval`,
+
+ADD COLUMN `profession` VARCHAR(155) NOT NULL AFTER `assigned_vol`,
+
+ADD COLUMN `completion` VARCHAR(155) NOT NULL AFTER `profession`;
+
+ALTER TABLE `rental_agency`.`service_request` 
+
+ADD COLUMN `resources` VARCHAR(155) NOT NULL AFTER `profession`;
